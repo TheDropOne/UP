@@ -1,0 +1,11 @@
+commit 131bfb1577f2f4978e69f8389d0fc2665dfd14c8
+Author: Siamion <thedropone@gmail.com>
+Date:   Mon Feb 13 22:35:00 2017 +0300
+
+    add status.txt
+
+commit 399500f8e8f75cb9cfe8f7d25614bcc7af9b63c8
+Author: Siamion <thedropone@gmail.com>
+Date:   Mon Feb 13 22:34:17 2017 +0300
+
+    add .gitignore
