@@ -443,6 +443,7 @@ function addArticle(article) {
 }
 
 function editArticle(id, article) {
+    var index = 0;
     var tempPost = {
         id: "-1",
         title: "-1",
@@ -453,9 +454,14 @@ function editArticle(id, article) {
         imageSrc: "-1",
         tags: []
     };
+    if (id == null || id === undefined) {
+        console.log("ID is null or undefined");
+        return false;
+    }
     for (var i = 0; i < articles.length; i++) {
         if (articles[i].id != null && articles[i].id != undefined && articles[i].id == id) {
             tempPost = clone(articles[i]);
+            index = i;
             break;
         }
     }
@@ -482,11 +488,13 @@ function editArticle(id, article) {
     if (article.tags != null && article.tags != undefined) {
         tempPost.tags = article.tags;
     }
+    articles[index] = null;
     if (!validateArticle(tempPost)) {
         console.log("Post not validated");
+        articles[index] = tempPost;
         return false;
     }
-    articles.replace(post, tempPost);
+    articles[index] =  tempPost;
     console.log("Post successfully edited");
     return true;
 }
