@@ -544,7 +544,7 @@ function logTests() {
 
     var filterConfig = new FilterConfig(null, null, 'NotBrama', null);
     var newArticle = {
-        id: '25',
+        id: '21',
         title: 'New article',
         summary: 'New article summary',
         createdAt: new Date('2017-02-27T23:10:54'),
