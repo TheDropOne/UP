@@ -409,9 +409,11 @@ function validateArticle(article) {
         return false;
     }
     for (var i = 0; i < articles.length; i++) {
-        if (articles[i].id === article.id) {
-            console.log('Invalid id');
-            return false;
+        if (articles[i] != null) {
+            if (articles[i].id === article.id) {
+                console.log('Invalid id');
+                return false;
+            }
         }
     }
     for (var i = 0; i < article.tags.length; i++) {
@@ -494,7 +496,7 @@ function editArticle(id, article) {
         articles[index] = tempPost;
         return false;
     }
-    articles[index] =  tempPost;
+    articles[index] = tempPost;
     console.log("Post successfully edited");
     return true;
 }
