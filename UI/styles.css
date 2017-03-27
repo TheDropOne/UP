@@ -6,7 +6,7 @@ header {
     background-color: #5188E8;
 }
 
-.row {
+.header-row {
     width: 100%;
     margin: 0 auto;
 }
@@ -91,20 +91,76 @@ body{
 }
 .content {
     overflow: auto;
-    width: 82%;
-    min-height: 1000px;
-    padding-top: 8%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 700px;
+    padding-top: 130px;
     padding-bottom: 30px;
     margin: 0 auto;
 }
 .post{
-     width: 100%;
+     width: 83%;
      height: 200px;
      margin: 50px auto 25px;
      border-radius: 20px;
      color: #000000;
      background-color: #FFFFFF;
+     animation: appear-animation 1s cubic-bezier(0.12,1.04, 0.78, 1) forwards;
  }
+@keyframes appear-animation {
+    0% {
+        opacity: 0;
+        transform: translateY(1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.removed-item {
+    background-color: #FFFFFF;
+    width: 83%;
+    height: 200px;
+    margin: 50px auto 25px;
+    border-radius: 20px;
+    color: #000000;
+    animation: removed-item-animation 0.8s cubic-bezier(0.55, -0.4, 0.91, 0.94) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+    }
+    100% {
+        height: 150px;
+        opacity: 0;
+        transform: translateY(600px) rotateZ(90deg);
+    }
+}
+.removed-content {
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 700px;
+    padding-top: 130px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    animation: removed-content-animation 0.8s cubic-bezier(0.55, 0, 0.91, 0.94) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes removed-content-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+}
 .control-buttons{
     float: right;
     width: 50px;
@@ -189,12 +245,307 @@ body{
     width: inherit;
 }
 
+.error-window {
+    animation: error-appear-animation 1s cubic-bezier(0.12,1.04, 0.78, 1) forwards;
+    width: 70%;
+    height: 400px;
+    text-align: center;
+    margin: 100px auto 25px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+}
+@keyframes error-appear-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.error-window-header{
+    width: 100%;
+    height: 32%;
+    background-color: #ff8675;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.error-window-title {
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 44px;
+    color: #FFFFFF;
+    padding-top: 50px;
+}
+.error-window-content{
+    width: 100%;
+}
+.error-window-label{
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    color: #424242;
+    padding-top: 45px;
+}
+.error-window-code{
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    color: #848484;
+    padding-top: 25px;
+}
+.error-window-return-button {
+    width: 25%;
+    height: 46px;
+    align-content: center;
+    margin-top: 40px;
+    font-size: 24px;
+    border-style: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #81e600;
+}
+.error-window-return-button > a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.login-window {
+    animation: appear-animation 1s cubic-bezier(0.12,1.04, 0.78, 1) forwards;
+    width: 75%;
+    height: 540px;
+    text-align: center;
+    margin: 60px auto 25px;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+}
+.login-window-header{
+    width: 100%;
+    height: 25%;
+    background-color: #5188E8;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.login-window-title {
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    color: #FFFFFF;
+    padding-top: 48px;
+}
+.login-window-input{
+    margin-top: 40px;
+}
+.login-window-input>input{
+    width: 40%;
+    height: 60px;
+    font-size: 28px;
+    margin-top: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    border-style: none;
+    border-radius: 8px;
+    background-color: #f0f0f8;
+}
+.login-window-enter-button {
+    width: 20%;
+    height: 50px;
+    align-content: center;
+    margin-top: 40px;
+    font-size: 24px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #81e600;
+}
+.login-window-enter-button > a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.detailed-post{
+    width: 90%;
+    min-height: 300px;
+    margin: 50px auto 25px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+.detailed-control-buttons{
+    float: right;
+    width: 42px;
+    border-style: none;
+}
+.detailed-control-buttons > button{
+    width: 100%;
+    height: 30px;
+    border-style: none;
+    margin: 15px auto auto;
+    background-color: #FFFFFF;
+}
+.detailed-button-delete > img {
+    width: 95%;
+}
+.detailed-button-change > img {
+    width: 95%;
+}
+.detailed-image-cropper{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 220px;
+    height: 220px;
+    margin: 20px 54px 20px 50px;
+    border-radius: 50%;
+}
+.detailed-image-cropper > img {
+    display: inline;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+.detailed-post-content{
+    width: 100%;
+    padding-top: 38px;
+    color: #000000;
+}
+.detailed-post-content > h1{
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 36px;
+}
+.detailed-post-content > p {
+    width: 90%;
+    font-size: 26px;
+    padding: 38px 50px 40px 50px;
+
+}
+.detailed-post-tags {
+    float: left;
+    font-size: 20px;
+    font-family: Consolas, monaco, monospace;
+    padding-left: 40px;
+
+}
+.detailed-post-meta{
+    font-size: 26px;
+    margin-right: 7%;
+    text-align: end;
+}
+.detailed-post-meta > p{
+    margin-bottom: 10px;
+}
+.detailed-post-author {
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+.edit-post{
+    width: 80%;
+    min-height: 400px;
+    margin: 50px auto 25px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    animation: edit-appear-animation 1s cubic-bezier(0.12,1.04, 0.78, 1) forwards;
+}
+@keyframes edit-appear-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.edit-image-cropper{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin: 20px 54px 20px 50px;
+    border-radius: 50%;
+}
+.edit-image-cropper > img {
+    display: inline;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+.edit-post-meta{
+    width: 100%;
+    height: 150px;
+    padding-top: 24px;
+}
+.edit-post-meta > input{
+    width: 60%;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 6px;
+    border-style: groove;
+    font-size: 20px;
+}
+.static-row{
+    float: left;
+    width: 58%;
+    height: 60px;
+    padding-top: 16px;
+}
+.edit-post-tags{
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+.edit-post-id{
+    float: left;
+    margin-left: 10px;
+    font-size: 22px;
+}
+.edit-post-author{
+    float: left;
+    margin-left: 30px;
+    font-size: 22px;
+    font-style: italic;
+}
+.edit-post-date{
+    float: left;
+    margin-left: 20px;
+    font-size: 22px;
+    font-style: italic;
+}
+.edit-post-content{
+    width: 88%;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.edit-post-content > textarea{
+    width: 100%;
+    border-radius: 6px;
+    border-style: inset;
+    margin-bottom: 20px;
+}
+.edit-post-short-description{
+    height: 80px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.edit-post-description{
+    height: 240px;
+    font-size: 20px;
+    padding-left: 10px;
+}
 
 footer {
     width: 100%;
     height: 60px;
     opacity: 0.5;
     background-color: #5188E8;
+}
+.footer-row {
+    width: 100%;
+    margin: 0 auto;
 }
 .footer-logo{
     float: left;
@@ -204,7 +555,7 @@ footer {
 .footer-logo > img{
     width: 100%;
 }
-.row > p {
+.footer-row > p {
     float: left;
     padding-top: 17px;
     font-size: 24px;
